@@ -14,17 +14,11 @@ def index():
 # 生成个性化饮食计划
 @app.route("/meal_plan", methods=["POST"])
 def meal_plan():
-    sex = request.form.get("sex")
-    height = request.form.get("height")
-    weight = request.form.get("weight")
     goal = request.form.get("goal")  # 获取用户目标（增肌/减脂）
     preferences = request.form.get("preferences")  # 获取食材偏好
 
     # 构造提示词
     prompt = f"""
-    My sex is:{sex}.
-    My height is: {height}.
-    My weight is: {weight}.
     My goal is: {goal}.
     My ingredient preferences are：{preferences}.
     Please generate a diet plan similar to Mint Health that contains:
